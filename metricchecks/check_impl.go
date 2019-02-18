@@ -69,7 +69,7 @@ func (c *checker) NewScopeAndPackage() error {
 	return nil
 }
 
-//ranges through config file and checks all expressions.
+// ranges through config file and checks all expressions.
 // prints result messages to stdout
 func (c *checker) CheckAll() ([]CheckResult, error) {
 	result := []CheckResult{}
@@ -137,7 +137,7 @@ func (c *checker) CheckAll() ([]CheckResult, error) {
 	return result, nil
 }
 
-//insertMetricValues inserts the values and rates of the metrics collected
+// InsertMetricValuesFromJSON inserts the values and rates of the metrics collected
 // as constants into the scope used to evaluate the expressions
 func (c *checker) InsertMetricValuesFromJSON() error {
 	//get metrics from json package

@@ -82,7 +82,7 @@ func (database *postgresDB) makeQuery(query string) ([]string, [][]string, error
 	return columnNames, values, nil
 }
 
-//return values of query in a mapping of column_name -> column
+// QueryReturnColumnDict returns values of query in a mapping of column_name -> column
 func (database *postgresDB) QueryReturnColumnDict(query string) (map[string][]string, error) {
 	columnNames, values, err := database.queryDb(query)
 	result := make(map[string][]string)
@@ -92,7 +92,7 @@ func (database *postgresDB) QueryReturnColumnDict(query string) (map[string][]st
 	return result, err
 }
 
-//return values of query in a mapping of first columns entry -> row
+// QueryMapFirstColumnToRow returns values of query in a mapping of first columns entry -> row
 func (database *postgresDB) QueryMapFirstColumnToRow(query string) (map[string][]string, error) {
 	_, values, err := database.queryDb(query)
 	result := make(map[string][]string)

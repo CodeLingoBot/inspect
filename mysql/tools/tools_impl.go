@@ -48,7 +48,7 @@ type InnodbStats struct {
 	Metrics          map[string]string
 }
 
-//wrapper for make_query, where if there is an error querying the database
+// wrapper for make_query, where if there is an error querying the database
 // retry connecting to the db and make the query
 func (database *mysqlDB) QueryDb(query string) ([]string, [][]string, error) {
 	var err error
@@ -66,7 +66,7 @@ func (database *mysqlDB) QueryDb(query string) ([]string, [][]string, error) {
 	return nil, nil, err
 }
 
-//wrapper for ExecQuery, which only returns a summary of the action taken
+// wrapper for ExecQuery, which only returns a summary of the action taken
 func (database *mysqlDB) DbExec(query string) (err error) {
 	for attempts := 0; attempts <= MaxRetries; attempts++ {
 		err = database.db.Ping()
@@ -140,7 +140,7 @@ func (database *mysqlDB) QueryReturnColumnDict(query string) (map[string][]strin
 	return result, nil
 }
 
-//return values of query in a mapping of first columns entry -> row
+// QueryMapFirstColumnToRow returns values of query in a mapping of first columns entry -> row
 func (database *mysqlDB) QueryMapFirstColumnToRow(query string) (map[string][]string, error) {
 	_, values, err := database.QueryDb(query)
 	result := make(map[string][]string)
